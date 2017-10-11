@@ -1,4 +1,4 @@
-package fileutils
+package csvwrapper
 
 import (
 	"bytes"
@@ -7,7 +7,7 @@ import (
 	"io/ioutil"
 )
 
-func csvAs2DStringSlice(file string) ([][]string, error) {
+func CSVTo2DStringSlice(file string) ([][]string, error) {
 	in, err1 := ioutil.ReadFile(file)
 	buf := bytes.NewBuffer(in)
 	r := csv.NewReader(buf)
