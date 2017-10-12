@@ -7,8 +7,8 @@ import (
 	"io/ioutil"
 )
 
-func CSVTo2DStringSlice(file string) ([][]string, error) {
-	in, err1 := ioutil.ReadFile(file)
+func CSVTo2DStringSlice(fileName string) ([][]string, error) {
+	in, err1 := ioutil.ReadFile(fileName)
 	buf := bytes.NewBuffer(in)
 	r := csv.NewReader(buf)
 	// r.Comma = ';'
