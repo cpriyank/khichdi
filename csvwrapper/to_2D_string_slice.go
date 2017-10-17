@@ -24,7 +24,10 @@ import (
 // [Robert Griesemer gri]
 
 func CSVTo2DStringSlice(fileName string) ([][]string, error) {
-	in, err1 := ioutil.ReadFile(fileName)
+	in, err := ioutil.ReadFile(fileName)
+	if err != nil {
+		return nil, err
+	}
 	buf := bytes.NewBuffer(in)
 	r := csv.NewReader(buf)
 	// encoding/csv allows specifying alternatives if fields are not separated by
@@ -32,6 +35,9 @@ func CSVTo2DStringSlice(fileName string) ([][]string, error) {
 	// r.Comma = ';'
 	// r.Comment = '#'
 
-	records, err2 := r.ReadAll()
-	return records, fmt.Errorf("%v : %v", err1, err2)
+	records, err := r.ReadAll()
+	if err != nil {
+		return nil, err
+	}
+	return records, nil
 }
