@@ -6,7 +6,6 @@ package csvwrapper
 import (
 	"bytes"
 	"encoding/csv"
-	"fmt"
 	"io/ioutil"
 )
 
